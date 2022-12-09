@@ -1,0 +1,29 @@
+applications:
+- name: desttest
+  routes:
+  - route: desttest-jfd-2006.cfapps.us10-001.hana.ondemand.com
+  memory: 128M
+  buildpacks:
+  - python_buildpack
+  command: python3 main.py
+  services:
+  - pyuaa
+
+- name: web
+  routes:
+  - route: web-jfd-2006.cfapps.us10-001.hana.ondemand.com
+  path: web
+  memory: 128M
+  buildpacks:
+  - nodejs_buildpack
+  env:
+    destinations: >
+      [
+        {
+          "name":"desttest",
+          "url":"https://desttest-jfd-2006.cfapps.us10-001.hana.ondemand.com",
+          "forwardAuthToken": true
+        }
+      ]
+  services:
+  - pyuaa

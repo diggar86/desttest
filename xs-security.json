@@ -1,0 +1,13 @@
+{
+    "xsappname": "desttest",
+    "tenant-mode": "dedicated",
+    "oauth2-configuration": {
+        "token-validity": 900, 
+        "redirect-uris": [
+            "https://web-jfd-2006.cfapps.us10-001.hana.ondemand.com**",
+            "https://*.cfapps.us10-001.hana.ondemand.com/**",
+            "https://e331537ftrial.authentication.us10.hana.ondemand.com/oauth/token"
+        ], 
+        "credential-types": ["binding-secret","x509"]
+    }
+}
